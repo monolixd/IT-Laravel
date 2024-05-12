@@ -29,16 +29,19 @@
                         <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
+
                         <td>
-                            <form action="{{ route('user.delete', $user->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-danger delete-btn">
-                                    <i class="glyphicon glyphicon-trash"></i>Delete</button>
-                                </div>
-                            </form>
-                        </td>
+                                <form action="{{ route('user.EditForm', $user->id) }}" method="GET" style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="btn btn-warning">Edit</button>
+                                </form>
+
+                                <form action="{{ route('user.delete', $user->id) }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
                     </tr>
                  @endforeach
             </tbody>

@@ -26,9 +26,13 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::post('/register/add',[registerController::class,'register' ])->name('register.add');
+Route::post('/register/add',[usercontroller::class,'register' ])->name('register.add');
 
 Route::get('/showdata',[usercontroller::class,'showData'])->name('user.data');
 
 Route::delete('/showData/delete/{id}', [userController::class, 'destroy'])->name('user.delete');
+
+Route::get('/showEditform/{id}',[userController::class, 'showEdit'])->name('user.EditForm');
+
+Route::put('/showEditForm/update/{id}', [userController::class, 'update'])->name('user.update');
 
